@@ -1,38 +1,22 @@
-/*
 package com.example.bank.domain.use_case;
 
-import com.example.bank.core.exception.BadRequestException;
-import com.example.bank.domain.entities.Compte;
+import com.example.bank.domain.entities.Account;
 import com.example.bank.domain.entities.RequestMvt;
+import com.example.bank.domain.port.CreditAccountPort;
 
-*/
 /**
  * @author Rami Ammous
- *//*
+ */
 
 public class CreditAccountUseCase {
 
-    public final
+    private final CreditAccountPort creditAccountPort;
 
+    public CreditAccountUseCase(CreditAccountPort creditAccountPort) {
+        this.creditAccountPort = creditAccountPort;
+    }
 
-    public Compte creditAccount(RequestMvt requestMvt) {
-
-        if( requestMvt == null || requestMvt.getIdCompte() == null || requestMvt.getMontant() == null)
-            throw  new BadRequestException("entrée non valide");
-
-        Compte compte = compteService.findById(requestMvt.getIdCompte());
-
-        CreditCompteDto creditCompteDto = CreditCompteDto.builder()
-                .montant(requestMvtDto.getMontant())
-                .compte(compteDto)
-                .build();
-
-        compteDto.setSolde(compteDto.getSolde()+requestMvt.getMontant());
-
-        creditCompteRepo.save(CreditCompteMapper.toEntity(creditCompteDto));
-
-        return compteService.update(compteDto);
-
+    public Account creditAccount(RequestMvt requestMvt){
+        return creditAccountPort.creditAccount(requestMvt);
     }
 }
-*/

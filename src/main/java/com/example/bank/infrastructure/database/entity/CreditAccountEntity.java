@@ -1,5 +1,8 @@
 package com.example.bank.infrastructure.database.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import java.util.Date;
@@ -8,12 +11,11 @@ import java.util.Date;
  * @author Rami Ammous
  */
 @Entity
-@DiscriminatorValue("debit")
-public class DebitAccount extends Transaction {
+@DiscriminatorValue("credit")
+@Getter @Setter
+public class CreditAccountEntity extends TransactionEntity {
 
-    public DebitAccount(Long id, Double montant, Date dateMvt, Account compte) {
+    public CreditAccountEntity(Long id, Double montant, Date dateMvt, AccountEntity compte) {
         super(id, montant, dateMvt, compte);
     }
-
-
 }

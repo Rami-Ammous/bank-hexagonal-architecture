@@ -2,7 +2,7 @@ package com.example.bank.application.controller;
 
 import com.example.bank.application.dto.CustomerDto;
 import com.example.bank.application.mapper.CustomerMapperDto;
-import com.example.bank.domain.use_case.InsertCustomerUseCase;
+import com.example.bank.domain.use_case.CustomerManagementUseCase;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,16 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("")
 public class CustomerController {
 
-    public final InsertCustomerUseCase insertCustomerUseCase;
+    public final CustomerManagementUseCase customerManagementUseCase;
 
 
-    public CustomerController(InsertCustomerUseCase insertCustomerUseCase) {
-        this.insertCustomerUseCase = insertCustomerUseCase;
+    public CustomerController(CustomerManagementUseCase customerManagementUseCase) {
+        this.customerManagementUseCase = customerManagementUseCase;
     }
 
     @PostMapping("api/v1/customer")
     public ResponseEntity<CustomerDto> insert(@RequestBody CustomerDto customerDto){
-        return new ResponseEntity(insertCustomerUseCase.insert(CustomerMapperDto.fromDtoToEntity(customerDto)) , HttpStatus.OK);
+        return new ResponseEntity(customerManagementUseCase.insert(CustomerMapperDto.dtoToEntity(customerDto)) , HttpStatus.OK);
     }
 
 }

@@ -20,7 +20,7 @@ import java.util.Date;
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
 @EntityListeners({AuditingEntityListener.class})
-public abstract class Transaction {
+public abstract class TransactionEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +36,7 @@ public abstract class Transaction {
 
     @ManyToOne
     @JoinColumn(name = "compte" , referencedColumnName = "id" , foreignKey = @ForeignKey(name = "FK_MVT_COMPTE"))
-    private Account compte;
+    private AccountEntity account;
 
 
 }

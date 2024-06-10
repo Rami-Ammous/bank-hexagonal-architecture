@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "compte")
 @Getter @Setter @Builder @NoArgsConstructor @AllArgsConstructor
-public class Account {
+public class AccountEntity {
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +20,8 @@ public class Account {
     private Double solde;
 
     @ManyToOne
-    @JoinColumn(name = "client" , referencedColumnName = "id" , foreignKey = @ForeignKey(name = "FK_COMPTE_CLIENT"))
-    private CustomerEntity client;
+    @JoinColumn(name = "customer" , referencedColumnName = "id" , foreignKey = @ForeignKey(name = "FK_COMPTE_CLIENT"))
+    private CustomerEntity customer;
 
 
 }

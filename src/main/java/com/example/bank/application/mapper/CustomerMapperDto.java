@@ -8,11 +8,11 @@ import com.example.bank.domain.entities.Customer;
  */
 public interface CustomerMapperDto {
 
-    public static CustomerDto fromDomainToDto(Customer customer) {
+    public static CustomerDto domainToDto(Customer customer) {
         return new CustomerDto(customer.getId(),customer.getName());
     }
 
-    public static Customer fromDtoToEntity(CustomerDto customerDto) {
+    public static Customer dtoToEntity(CustomerDto customerDto) {
         return new Customer(customerDto.getId(),customerDto.getName());
     }
 
