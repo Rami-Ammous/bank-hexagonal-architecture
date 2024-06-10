@@ -35,7 +35,7 @@ public abstract class TransactionEntity {
     private Date dateMvt;
 
     @ManyToOne
-    @JoinColumn(name = "compte" , referencedColumnName = "id" , foreignKey = @ForeignKey(name = "FK_MVT_COMPTE"))
+    @JoinColumn(name = "account" , referencedColumnName = "id" , foreignKey = @ForeignKey(name = "FK_MVT_COMPTE"))
     private AccountEntity account;
 
 

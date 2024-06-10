@@ -8,7 +8,7 @@ import javax.persistence.*;
  * @author Rami Ammous
  */
 @Entity
-@Table(name = "compte")
+@Table(name = "account")
 @Getter @Setter @Builder @NoArgsConstructor @AllArgsConstructor
 public class AccountEntity {
 
@@ -20,7 +20,7 @@ public class AccountEntity {
     private Double solde;
 
     @ManyToOne
-    @JoinColumn(name = "customer" , referencedColumnName = "id" , foreignKey = @ForeignKey(name = "FK_COMPTE_CLIENT"))
+    @JoinColumn(name = "customer" , referencedColumnName = "id" , foreignKey = @ForeignKey(name = "FK_ACCOUNT_CUSTOMER"))
     private CustomerEntity customer;
 
 

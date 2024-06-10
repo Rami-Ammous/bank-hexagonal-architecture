@@ -30,8 +30,8 @@ public class DomainConfiguration {
     }
 
     @Bean
-    public CreditAccountUseCase creditAccountUseCase(CreditAccountPort creditAccountPort){
-        return new CreditAccountUseCase(creditAccountPort);
+    public CreditAccountUseCase creditAccountUseCase(CreditAccountPort creditAccountPort,  AccountPort accountPort){
+        return new CreditAccountUseCase(creditAccountPort,accountPort);
     }
 
     @Bean

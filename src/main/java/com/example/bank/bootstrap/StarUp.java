@@ -2,7 +2,6 @@ package com.example.bank.bootstrap;
 
 import com.example.bank.domain.entities.Account;
 import com.example.bank.domain.entities.Customer;
-import com.example.bank.domain.entities.RequestMvt;
 import com.example.bank.domain.use_case.AccountManagementUseCase;
 import com.example.bank.domain.use_case.CreditAccountUseCase;
 import com.example.bank.domain.use_case.CustomerManagementUseCase;
@@ -65,9 +64,9 @@ if(accountManagementUseCase.getAll().isEmpty())
        /* System.err.println(
                 creditAccountUseCase.creditAccount(
                         new RequestMvt(1L,new Double(50))
-                ));
+                ));*/
 
-        System.err.println(
+        /*System.err.println(
                 debitAccountUseCase.debitAccount(
                         new RequestMvt(1L,new Double(100))
                 ));*/

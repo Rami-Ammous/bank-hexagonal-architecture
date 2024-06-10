@@ -1,12 +1,11 @@
 package com.example.bank.domain.port;
 
-import com.example.bank.domain.entities.Account;
-import com.example.bank.domain.entities.RequestMvt;
+import com.example.bank.domain.entities.CreditAccount;
 
 /**
  * @author Rami Ammous
  */
 public interface CreditAccountPort {
 
-    Account creditAccount(RequestMvt requestMvt);
+    void save(CreditAccount creditAccount);
 }

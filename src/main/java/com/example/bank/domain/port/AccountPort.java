@@ -4,6 +4,7 @@ import com.example.bank.domain.entities.Account;
 import com.example.bank.domain.entities.Customer;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Rami Ammous
@@ -15,7 +16,7 @@ public interface AccountPort {
 
     List<Account> getAll();
 
-    Account findById(Long idCompte);
+    Optional<Account>  findById(Long idAccount);
 
     Account update(Account account);
 }

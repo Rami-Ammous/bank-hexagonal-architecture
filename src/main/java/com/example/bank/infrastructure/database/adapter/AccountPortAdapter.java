@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -44,11 +45,10 @@ public class AccountPortAdapter implements AccountPort {
         ).stream().map(AccountMapper::entityToDomain).collect(Collectors.toList());
     }
 
-    public Account findById(Long id){
+    public Optional<Account> findById(Long id){
         if(id == null) throw  new BadRequestException("id is Null");
 
-        return accountRepo.findById(id).map(AccountMapper::entityToDomain)
-                .orElseThrow( () -> new RecordNotFoundException("Account : "+ id +" not found in database"));
+        return accountRepo.findById(id).map(AccountMapper::entityToDomain);
     }
 
     public Account update(Account account) {
