@@ -14,9 +14,9 @@ import java.util.Date;
  * @author Rami Ammous
  */
 @Entity
-@Table(name = "mouvement")
+@Table(name = "transaction")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "typeMouvement")
+@DiscriminatorColumn(name = "transactionType")
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
 @EntityListeners({AuditingEntityListener.class})
@@ -27,7 +27,7 @@ public abstract class TransactionEntity {
     private Long id;
 
     @Column
-    private Double montant;
+    private Double amount;
 
     @Column
     @CreatedDate

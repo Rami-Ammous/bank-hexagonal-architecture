@@ -41,11 +41,11 @@ public class DebitAccountUseCaseTest {
     @Test
     public void debitCompteTestFound() {
 
-        Double montant = 40.0;
+        Double amount = 40.0;
 
         Customer customer = new Customer(1L, "Rami");
         Account account = new Account(1L, 500.0, customer);
-//        DebitAccount debitAccount = new DebitAccount(1L,montant,new Date() ,account);
+//        DebitAccount debitAccount = new DebitAccount(1L,amount,new Date() ,account);
 
         //when
         Mockito.when(accountPort.findById(Mockito.anyLong())).thenReturn(Optional.of(account));
@@ -53,10 +53,10 @@ public class DebitAccountUseCaseTest {
         //Arrange
         doNothing().when(debitAccountPort).save(Mockito.any());
 
-        Account accountUpdate = new Account(account.getId(), account.getSolde() - montant, account.getCustomer());
+        Account accountUpdate = new Account(account.getId(), account.getSolde() - amount, account.getCustomer());
         Mockito.when(accountPort.update(Mockito.any())).thenReturn(accountUpdate);
 
-        Account accountResult = debitAccountUseCase.debitAccount(new RequestTransaction(1L, montant));
+        Account accountResult = debitAccountUseCase.debitAccount(new RequestTransaction(1L, amount));
 
         // Assert
         verify(debitAccountPort).save(Mockito.any());
@@ -93,19 +93,19 @@ public class DebitAccountUseCaseTest {
     @Test
     public void debitCompteTestInsufficientBankBalance() {
 
-        Double montant = 500.0;
+        Double amount = 500.0;
 
         Customer customer = new Customer(1L, "Rami");
         Account account = new Account(1L, 100.0, customer);
 
-        DebitAccount debitAccount = new DebitAccount(1L, montant, new Date(), account);
+        DebitAccount debitAccount = new DebitAccount(1L, amount, new Date(), account);
 
         //when
         Mockito.when(accountPort.findById(Mockito.anyLong())).thenReturn(Optional.of(account));
 
 
         OperationFailedException thrown = Assertions.assertThrows(OperationFailedException.class, () -> {
-            debitAccountUseCase.debitAccount(new RequestTransaction(1L, montant));
+            debitAccountUseCase.debitAccount(new RequestTransaction(1L, amount));
         });
 
     }

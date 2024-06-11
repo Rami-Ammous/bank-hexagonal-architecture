@@ -8,16 +8,16 @@ import java.util.Date;
 
 public abstract class Transaction {
 
-    public Transaction(Long id, Double montant, Date dateMvt, Account account) {
+    public Transaction(Long id, Double amount, Date dateMvt, Account account) {
         this.id = id;
-        this.montant = montant;
+        this.amount = amount;
         this.dateMvt = dateMvt;
         this.account = account;
     }
 
     private Long id;
 
-    private Double montant;
+    private Double amount;
 
     private Date dateMvt;
 
@@ -27,8 +27,8 @@ public abstract class Transaction {
         return id;
     }
 
-    public Double getMontant() {
-        return montant;
+    public Double getAmount() {
+        return amount;
     }
 
     public Date getDateMvt() {

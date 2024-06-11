@@ -11,8 +11,8 @@ import java.util.Date;
 @DiscriminatorValue("debit")
 public class DebitAccountEntity extends TransactionEntity {
 
-    public DebitAccountEntity(Long id, Double montant, Date dateMvt, AccountEntity account) {
-        super(id, montant, dateMvt, account);
+    public DebitAccountEntity(Long id, Double amount, Date dateMvt, AccountEntity account) {
+        super(id, amount, dateMvt, account);
     }
 
 

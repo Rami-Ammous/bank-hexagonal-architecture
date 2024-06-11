@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class CreditAccount extends Transaction {
 
-    public CreditAccount(Long id, Double montant, Date dateMvt, Account account) {
-        super(id, montant, dateMvt, account);
+    public CreditAccount(Long id, Double amount, Date dateMvt, Account account) {
+        super(id, amount, dateMvt, account);
     }
 }

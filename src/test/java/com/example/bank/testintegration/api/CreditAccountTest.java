@@ -79,7 +79,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void creditCompteApiTestBadRequestMontantNull() throws Exception {
+    public void creditCompteApiTestBadRequestAmountNull() throws Exception {
 
 
         mockMvc.perform(MockMvcRequestBuilders.post("/"+Constants.CREDIT_COMPTE_ENDPOINT)

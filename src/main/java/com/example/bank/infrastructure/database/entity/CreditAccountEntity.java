@@ -15,7 +15,7 @@ import java.util.Date;
 @Getter @Setter
 public class CreditAccountEntity extends TransactionEntity {
 
-    public CreditAccountEntity(Long id, Double montant, Date dateMvt, AccountEntity account) {
-        super(id, montant, dateMvt, account);
+    public CreditAccountEntity(Long id, Double amount, Date dateMvt, AccountEntity account) {
+        super(id, amount, dateMvt, account);
     }
 }

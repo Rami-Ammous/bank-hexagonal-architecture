@@ -13,7 +13,7 @@ public interface DebitAccountMapper {
 
         return new DebitAccount(
                 debitAccountEntity.getId(),
-                debitAccountEntity.getMontant(),
+                debitAccountEntity.getAmount(),
                 debitAccountEntity.getDateMvt(),
                 AccountMapper.entityToDomain( debitAccountEntity.getAccount())
         );
@@ -25,7 +25,7 @@ public interface DebitAccountMapper {
 
         return new DebitAccountEntity(
                 debitAccount.getId(),
-                debitAccount.getMontant(),
+                debitAccount.getAmount(),
                 debitAccount.getDateMvt(),
                 AccountMapper.domainToEntity( debitAccount.getAccount())
         );

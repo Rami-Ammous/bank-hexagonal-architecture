@@ -39,7 +39,7 @@ public class CreditAccountUseCaseTest {
     @Test
     public void creditCompteTestFound(){
 
-        Double montant = 65.0;
+        Double amount = 65.0;
 
         Customer customer = new Customer(1L , "Rami");
         Account account = new Account(1L ,100.0,customer);
@@ -50,13 +50,13 @@ public class CreditAccountUseCaseTest {
         //Arrange
         doNothing().when(creditAccountPort).save(Mockito.any());
 
-        Account accountUpdate = new Account(account.getId(), account.getSolde() + montant, account.getCustomer());
+        Account accountUpdate = new Account(account.getId(), account.getSolde() + amount, account.getCustomer());
         Mockito.when(accountPort.update(Mockito.any())).thenReturn(accountUpdate);
 
 
         Mockito.when(accountPort.update(Mockito.any())).thenReturn(accountUpdate);
 
-        Account accountResult = creditAccountUseCase.creditAccount(new RequestTransaction(1L, montant));
+        Account accountResult = creditAccountUseCase.creditAccount(new RequestTransaction(1L, amount));
 
         // Assert
         verify(creditAccountPort).save(Mockito.any());

@@ -43,11 +43,11 @@ public class DebitAccountTest {
     @BeforeAll
     public  void initMethod() {
         log.info("==== >> init method");
-
+/*
         Customer customer = new Customer(1L , "Rami");
         Account account = new Account(1L ,500.0,customer);
 
-        Mockito.when(debitAccountUseCase.debitAccount(Mockito.any())).thenReturn(account);
+        Mockito.when(debitAccountUseCase.debitAccount(Mockito.any())).thenReturn(account);*/
     }
 
 
@@ -80,7 +80,7 @@ public class DebitAccountTest {
     }
 
     @Test
-    public void debitCompteApiTestBadRequestMontantNull() throws Exception {
+    public void debitCompteApiTestBadRequestAmountNull() throws Exception {
 
 
         mockMvc.perform(MockMvcRequestBuilders.post("/"+Constants.DEBIT_COMPTE_ENDPOINT)

@@ -14,7 +14,7 @@ public interface RequestMvtMapperDto {
 
         return new RequestTransaction(
                 requestMvtDto.getIdCompte(),
-                requestMvtDto.getMontant()
+                requestMvtDto.getAmount()
         );
     }
 
@@ -24,7 +24,7 @@ public interface RequestMvtMapperDto {
 
         return new RequestTransactionDto(
                 requestMvt.getIdAccount(),
-                requestMvt.getMontant()
+                requestMvt.getAmount()
         );
     }
 }

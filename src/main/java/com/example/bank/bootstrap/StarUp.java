@@ -45,7 +45,7 @@ public class StarUp implements CommandLineRunner {
 if(customerManagementUseCase.getAll().isEmpty())
     { customerManagementUseCase.insertLst(Arrays.asList(
             new Customer(null,"Rami Ammous"),
-            new Customer(null,"Bilel Lousayef")
+            new Customer(null,"Bilel Loussaief")
 
             )); }
 
@@ -53,7 +53,7 @@ if(accountManagementUseCase.getAll().isEmpty())
 {
     accountManagementUseCase.insertLst(Arrays.asList(
             new Account(1L,new Double(10000.0),customerManagementUseCase.findByName("Rami Ammous")),
-            new Account(2L,new Double(50000.0),customerManagementUseCase.findByName("Bilel Lousayef"))
+            new Account(2L,new Double(50000.0),customerManagementUseCase.findByName("Bilel Loussaief"))
 
             ));
 

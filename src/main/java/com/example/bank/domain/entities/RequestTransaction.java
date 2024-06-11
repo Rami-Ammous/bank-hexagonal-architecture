@@ -6,19 +6,19 @@ package com.example.bank.domain.entities;
 public class RequestTransaction {
 
     private Long idAccount;
-    private Double montant;
+    private Double amount;
 
 
-    public RequestTransaction(Long idAccount, Double montant) {
+    public RequestTransaction(Long idAccount, Double amount) {
         this.idAccount = idAccount;
-        this.montant = montant;
+        this.amount = amount;
     }
 
     public Long getIdAccount() {
         return idAccount;
     }
 
-    public Double getMontant() {
-        return montant;
+    public Double getAmount() {
+        return amount;
     }
 }

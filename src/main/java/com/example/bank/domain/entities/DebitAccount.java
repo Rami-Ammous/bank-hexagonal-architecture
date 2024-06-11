@@ -8,8 +8,8 @@ import java.util.Date;
 
 public class DebitAccount extends Transaction {
 
-    public DebitAccount(Long id, Double montant, Date dateMvt, Account account) {
-        super(id, montant, dateMvt, account);
+    public DebitAccount(Long id, Double amount, Date dateMvt, Account account) {
+        super(id, amount, dateMvt, account);
     }
 
 

@@ -12,11 +12,11 @@ import javax.validation.constraints.NotNull;
 @Getter @AllArgsConstructor
 public class RequestTransactionDto {
 
-    @NotNull(message = "l'id compte ne doit pas étre non null")
+    @NotNull(message = "id account is null")
     private Long idCompte;
 
-    @NotNull(message = "doit étre non null")
-    @Min(value = 5 , message = "le montant de la transaction doit etre superieur ou egal a 5 DT")
-    private Double montant;
+    @NotNull(message = "")
+    @Min(value = 5 , message = "le amount de la transaction doit etre superieur ou egal a 5 DT")
+    private Double amount;
 
 }

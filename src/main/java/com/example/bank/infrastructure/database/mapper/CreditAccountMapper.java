@@ -13,7 +13,7 @@ public interface CreditAccountMapper {
 
         return new CreditAccount(
                 creditAccountEntity.getId(),
-                creditAccountEntity.getMontant(),
+                creditAccountEntity.getAmount(),
                 creditAccountEntity.getDateMvt(),
                 AccountMapper.entityToDomain( creditAccountEntity.getAccount())
         );
@@ -25,7 +25,7 @@ public interface CreditAccountMapper {
 
         return new CreditAccountEntity(
                 creditAccount.getId(),
-                creditAccount.getMontant(),
+                creditAccount.getAmount(),
                 creditAccount.getDateMvt(),
                 AccountMapper.domainToEntity( creditAccount.getAccount())
         );

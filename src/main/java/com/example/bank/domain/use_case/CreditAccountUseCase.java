@@ -26,7 +26,7 @@ public class CreditAccountUseCase {
 
     public Account creditAccount(RequestTransaction requestMvt){
 
-        if( requestMvt == null || requestMvt.getIdAccount() == null || requestMvt.getMontant() == null)
+        if( requestMvt == null || requestMvt.getIdAccount() == null || requestMvt.getAmount() == null)
             throw  new BadRequestException(" Not valid input");
 
         Optional<Account> accountOptional = accountPort.findById(requestMvt.getIdAccount());
@@ -36,9 +36,9 @@ public class CreditAccountUseCase {
 
         Account account = accountOptional.get();
         CreditAccount creditAccount =
-                new CreditAccount(null,requestMvt.getMontant(),null,account);
+                new CreditAccount(null,requestMvt.getAmount(),null,account);
 
-        account.setSolde(account.getSolde() + requestMvt.getMontant());
+        account.setSolde(account.getSolde() + requestMvt.getAmount());
         creditAccountPort.save(creditAccount);
 
         return accountPort.update(account);
