@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "485d2121-f522-49c1-a56b-6d339e149340",
+		"name": "Transaction",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29327218"
+	},
+	"item": [
+		{
+			"name": "debiter compte",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCompte\" : 2,\r\n    \"amount\" : 200\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/mvt/debit",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"mvt",
+						"debit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crediter compte",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCompte\" : 1,\r\n    \"amount\" : 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/mvt/credit",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"mvt",
+						"credit"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
