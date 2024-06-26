@@ -1,9 +1,8 @@
 package com.example.bank.infrastructure.database.adapter;
 
-import com.example.bank.core.exception.BadRequestException;
-import com.example.bank.domain.entities.DebitAccount;
+import com.example.bank.domain.exception.BadRequestException;
+import com.example.bank.domain.entities.Transaction;
 import com.example.bank.domain.port.DebitAccountPort;
-import com.example.bank.infrastructure.database.mapper.AccountMapper;
 import com.example.bank.infrastructure.database.mapper.DebitAccountMapper;
 import com.example.bank.infrastructure.database.repository.DebitAccountRepo;
 import lombok.RequiredArgsConstructor;
@@ -19,10 +18,10 @@ public class DebitAccountPortAdapter implements DebitAccountPort {
     public final DebitAccountRepo debitAccountRepo;
 
     @Override
-    public void save(DebitAccount debitAccount) {
-        if(debitAccount == null) {throw new BadRequestException("");}
+    public void save(Transaction transaction) {
+        if(transaction == null) {throw new BadRequestException("");}
         else {
-            debitAccountRepo.save(DebitAccountMapper.domainToEntity(debitAccount));
+            debitAccountRepo.save(DebitAccountMapper.domainToEntity(transaction));
         }
         }
     }

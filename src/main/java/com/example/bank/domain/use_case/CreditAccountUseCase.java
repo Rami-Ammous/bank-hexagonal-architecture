@@ -1,10 +1,10 @@
 package com.example.bank.domain.use_case;
 
-import com.example.bank.core.exception.BadRequestException;
-import com.example.bank.core.exception.RecordNotFoundException;
+import com.example.bank.domain.exception.BadRequestException;
+import com.example.bank.domain.exception.RecordNotFoundException;
 import com.example.bank.domain.entities.Account;
-import com.example.bank.domain.entities.CreditAccount;
 import com.example.bank.domain.entities.RequestTransaction;
+import com.example.bank.domain.entities.Transaction;
 import com.example.bank.domain.port.AccountPort;
 import com.example.bank.domain.port.CreditAccountPort;
 
@@ -35,11 +35,11 @@ public class CreditAccountUseCase {
         }
 
         Account account = accountOptional.get();
-        CreditAccount creditAccount =
-                new CreditAccount(null,requestMvt.getAmount(),null,account);
+        Transaction transaction =
+                new Transaction(null,requestMvt.getAmount(),null,account);
 
         account.setSolde(account.getSolde() + requestMvt.getAmount());
-        creditAccountPort.save(creditAccount);
+        creditAccountPort.save(transaction);
 
         return accountPort.update(account);
     }

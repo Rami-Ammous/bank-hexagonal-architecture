@@ -1,6 +1,6 @@
 package com.example.bank.infrastructure.database.adapter;
 
-import com.example.bank.core.exception.RecordNotFoundException;
+import com.example.bank.domain.exception.RecordNotFoundException;
 import com.example.bank.domain.entities.Customer;
 import com.example.bank.domain.port.CustomerPort;
 import com.example.bank.infrastructure.database.mapper.CustomerMapper;

@@ -1,6 +1,6 @@
 package com.example.bank.infrastructure.database.mapper;
 
-import com.example.bank.domain.entities.DebitAccount;
+import com.example.bank.domain.entities.Transaction;
 import com.example.bank.infrastructure.database.entity.DebitAccountEntity;
 
 /**
@@ -8,10 +8,10 @@ import com.example.bank.infrastructure.database.entity.DebitAccountEntity;
  */
 public interface DebitAccountMapper {
 
-    public static DebitAccount entityToDomain(DebitAccountEntity debitAccountEntity){
+    public static Transaction entityToDomain(DebitAccountEntity debitAccountEntity){
         if (debitAccountEntity == null) return null;
 
-        return new DebitAccount(
+        return new Transaction(
                 debitAccountEntity.getId(),
                 debitAccountEntity.getAmount(),
                 debitAccountEntity.getDateMvt(),
@@ -20,14 +20,14 @@ public interface DebitAccountMapper {
     }
 
 
-    public static DebitAccountEntity domainToEntity(DebitAccount debitAccount){
-        if (debitAccount == null) return null;
+    public static DebitAccountEntity domainToEntity(Transaction transaction){
+        if (transaction == null) return null;
 
         return new DebitAccountEntity(
-                debitAccount.getId(),
-                debitAccount.getAmount(),
-                debitAccount.getDateMvt(),
-                AccountMapper.domainToEntity( debitAccount.getAccount())
+                transaction.getId(),
+                transaction.getAmount(),
+                transaction.getDateMvt(),
+                AccountMapper.domainToEntity( transaction.getAccount())
         );
     }
 }

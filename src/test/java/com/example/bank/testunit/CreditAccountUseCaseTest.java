@@ -1,7 +1,7 @@
 package com.example.bank.testunit;
 
-import com.example.bank.core.exception.BadRequestException;
-import com.example.bank.core.exception.RecordNotFoundException;
+import com.example.bank.domain.exception.BadRequestException;
+import com.example.bank.domain.exception.RecordNotFoundException;
 import com.example.bank.domain.entities.Account;
 import com.example.bank.domain.entities.Customer;
 import com.example.bank.domain.entities.RequestTransaction;

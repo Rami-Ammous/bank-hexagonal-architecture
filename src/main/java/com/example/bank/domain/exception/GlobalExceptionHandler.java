@@ -1,4 +1,4 @@
-package com.example.bank.core.exception;
+package com.example.bank.domain.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

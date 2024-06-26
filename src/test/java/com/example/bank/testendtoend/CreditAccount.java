@@ -29,7 +29,7 @@ public class CreditAccount {
     public void creditAccount() {
 
         String url =  "/"+ Constants.CREDIT_COMPTE_ENDPOINT;
-        HttpEntity<RequestTransactionDto> request = new HttpEntity<>(new RequestTransactionDto(1L,200.0));
+        HttpEntity<RequestTransactionDto> request = new HttpEntity<>(new RequestTransactionDto(1L,90.0));
         ResponseEntity<AccountDto> result = testRestTemplate.postForEntity(url, request, AccountDto.class);
         assertThat(result.getStatusCode()).isEqualTo(HttpStatus.ACCEPTED);
         Assertions.assertEquals(result.getStatusCode(), HttpStatus.ACCEPTED);

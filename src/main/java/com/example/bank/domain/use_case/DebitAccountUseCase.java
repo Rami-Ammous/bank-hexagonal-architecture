@@ -1,11 +1,11 @@
 package com.example.bank.domain.use_case;
 
-import com.example.bank.core.exception.BadRequestException;
-import com.example.bank.core.exception.OperationFailedException;
-import com.example.bank.core.exception.RecordNotFoundException;
+import com.example.bank.domain.exception.BadRequestException;
+import com.example.bank.domain.exception.OperationFailedException;
+import com.example.bank.domain.exception.RecordNotFoundException;
 import com.example.bank.domain.entities.Account;
-import com.example.bank.domain.entities.DebitAccount;
 import com.example.bank.domain.entities.RequestTransaction;
+import com.example.bank.domain.entities.Transaction;
 import com.example.bank.domain.port.AccountPort;
 import com.example.bank.domain.port.DebitAccountPort;
 import lombok.RequiredArgsConstructor;
@@ -35,12 +35,12 @@ public class DebitAccountUseCase {
         if (account.getSolde() < requestMvt.getAmount())
             throw new OperationFailedException("Unable to complete this operation : insufficient balance");
 
-        DebitAccount debitAccount =
-                new DebitAccount(null, requestMvt.getAmount(), null, account);
+        Transaction transaction =
+                new Transaction(null, requestMvt.getAmount(), null, account);
 
         account.setSolde(account.getSolde() - requestMvt.getAmount());
 
-        debitAccountPort.save(debitAccount);
+        debitAccountPort.save(transaction);
 
         return accountPort.update(account);
     }

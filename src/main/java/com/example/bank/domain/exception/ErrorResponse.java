@@ -1,5 +1,5 @@
 
-package com.example.bank.core.exception;
+package com.example.bank.domain.exception;
 
 import java.time.LocalDateTime;
 import java.util.List;

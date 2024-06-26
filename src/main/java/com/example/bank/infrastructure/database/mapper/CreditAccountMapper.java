@@ -1,6 +1,6 @@
 package com.example.bank.infrastructure.database.mapper;
 
-import com.example.bank.domain.entities.CreditAccount;
+import com.example.bank.domain.entities.Transaction;
 import com.example.bank.infrastructure.database.entity.CreditAccountEntity;
 
 /**
@@ -8,10 +8,10 @@ import com.example.bank.infrastructure.database.entity.CreditAccountEntity;
  */
 public interface CreditAccountMapper {
 
-    public static CreditAccount entityToDomain(CreditAccountEntity creditAccountEntity){
+    public static Transaction entityToDomain(CreditAccountEntity creditAccountEntity){
         if (creditAccountEntity == null) return null;
 
-        return new CreditAccount(
+        return new Transaction(
                 creditAccountEntity.getId(),
                 creditAccountEntity.getAmount(),
                 creditAccountEntity.getDateMvt(),
@@ -20,14 +20,14 @@ public interface CreditAccountMapper {
     }
 
 
-    public static CreditAccountEntity domainToEntity(CreditAccount creditAccount){
-        if (creditAccount == null) return null;
+    public static CreditAccountEntity domainToEntity(Transaction transaction){
+        if (transaction == null) return null;
 
         return new CreditAccountEntity(
-                creditAccount.getId(),
-                creditAccount.getAmount(),
-                creditAccount.getDateMvt(),
-                AccountMapper.domainToEntity( creditAccount.getAccount())
+                transaction.getId(),
+                transaction.getAmount(),
+                transaction.getDateMvt(),
+                AccountMapper.domainToEntity( transaction.getAccount())
         );
     }
 }

@@ -1,12 +1,9 @@
 package com.example.bank.infrastructure.database.adapter;
 
-import com.example.bank.core.exception.BadRequestException;
-import com.example.bank.core.exception.RecordNotFoundException;
+import com.example.bank.domain.exception.BadRequestException;
 import com.example.bank.domain.entities.Account;
 import com.example.bank.domain.port.AccountPort;
-import com.example.bank.infrastructure.database.entity.AccountEntity;
 import com.example.bank.infrastructure.database.mapper.AccountMapper;
-import com.example.bank.infrastructure.database.mapper.CustomerMapper;
 import com.example.bank.infrastructure.database.repository.AccountRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

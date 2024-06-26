@@ -6,7 +6,7 @@ import java.util.Date;
  * @author Rami Ammous
  */
 
-public abstract class Transaction {
+public  class Transaction {
 
     public Transaction(Long id, Double amount, Date dateMvt, Account account) {
         this.id = id;

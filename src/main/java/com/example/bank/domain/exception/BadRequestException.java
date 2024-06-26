@@ -1,4 +1,4 @@
-package com.example.bank.core.exception;
+package com.example.bank.domain.exception;
 
 /**
  * @author Rami Ammous

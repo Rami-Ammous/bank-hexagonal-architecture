@@ -1,11 +1,10 @@
 package com.example.bank.testunit;
 
-import com.example.bank.core.exception.BadRequestException;
-import com.example.bank.core.exception.OperationFailedException;
-import com.example.bank.core.exception.RecordNotFoundException;
+import com.example.bank.domain.exception.BadRequestException;
+import com.example.bank.domain.exception.OperationFailedException;
+import com.example.bank.domain.exception.RecordNotFoundException;
 import com.example.bank.domain.entities.Account;
 import com.example.bank.domain.entities.Customer;
-import com.example.bank.domain.entities.DebitAccount;
 import com.example.bank.domain.entities.RequestTransaction;
 import com.example.bank.domain.port.AccountPort;
 import com.example.bank.domain.port.DebitAccountPort;
@@ -17,7 +16,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Date;
 import java.util.Optional;
 
 import static org.mockito.Mockito.doNothing;
@@ -98,7 +96,7 @@ public class DebitAccountUseCaseTest {
         Customer customer = new Customer(1L, "Rami");
         Account account = new Account(1L, 100.0, customer);
 
-        DebitAccount debitAccount = new DebitAccount(1L, amount, new Date(), account);
+        //Transaction transaction = new Transaction(1L, amount, new Date(), account);
 
         //when
         Mockito.when(accountPort.findById(Mockito.anyLong())).thenReturn(Optional.of(account));
