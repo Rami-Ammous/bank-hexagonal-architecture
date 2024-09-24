@@ -1,0 +1,37 @@
+services:
+  mysql-db:
+    container_name: mysql-container
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3305:3306"
+    volumes:
+      - mysql:/var/lib/mysql7/data
+    networks:
+      - spring-boot-network
+    healthcheck:
+      test: [ "CMD-SHELL", "mysqladmin ping -h localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  spring-boot-app:
+    container_name: bank-container
+    image: bank-img
+    ports:
+      - "8088:8080"
+
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    networks:
+      - spring-boot-network
+    depends_on:
+      - mysql-db
+
+volumes:
+  mysql:
+networks:
+  spring-boot-network:
+    driver: bridge
